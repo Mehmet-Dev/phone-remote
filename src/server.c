@@ -10,9 +10,9 @@ int create_socket() {
 
     struct sockaddr_in server_addr; // setting up the actual address for the socket
     memset(&server_addr, 0, sizeof(server_addr));
-    server_addr.sin_family = AF_INET;
-    server_addr.sin_port = htons(DEFAULT_PORT);
-    server_addr.sin_addr.s_addr = INADDR_ANY;
+    server_addr.sin_family = AF_INET; // using ipv4
+    server_addr.sin_port = htons(DEFAULT_PORT); // using UDP cus it's fast and doesn't require a handshake everytime
+    server_addr.sin_addr.s_addr = INADDR_ANY; // default for OS
 
     int created = bind(creation, (struct sockaddr*)&server_addr, sizeof(server_addr));
 
