@@ -2,12 +2,6 @@
 #define PROTOCOL_H
 
 #include <stdint.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include "arpa/inet.h"
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 
 // Default port and magic number
 #define DEFAULT_PORT 6969
