@@ -8,7 +8,7 @@ CFLAGS  := -Wall -Wextra -g -Iinc
 # Project Folders
 SRCDIR  := src
 OBJDIR  := obj
-BIN     := remote_listener
+BIN     := remote_listener_app
 
 # File Discovery
 SRCS    := $(wildcard $(SRCDIR)/*.c)
