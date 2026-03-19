@@ -1,4 +1,9 @@
 #include "server.h"
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include "arpa/inet.h"
+#include <stdio.h>
+#include <string.h>
 
 int create_socket() {
     int creation = socket(AF_INET, SOCK_DGRAM, 0); // create a socket

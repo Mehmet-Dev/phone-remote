@@ -1,5 +1,9 @@
 #include "executor.h"
 #include "server.h"
+#include "protocol.h"
+#include "arpa/inet.h"
+#include <stdio.h>
+#include <string.h>
 
 int main()
 {
@@ -17,6 +21,10 @@ int main()
     }
 
     printf("Socket created!\n");
+
+    int device_id = open_virtual_device();
+
+    printf("Created virtual device with id: %d\n", device_id);
 
     while(1) {
         ssize_t result = recvfrom(socketId, &carrier_pidgeon, sizeof(envelope), 0, (struct sockaddr*)&client_addr, &addr);
