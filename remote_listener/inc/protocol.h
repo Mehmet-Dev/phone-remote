@@ -17,9 +17,11 @@
 
 // define mouse resposnes
 #define CMD_MOUSE_MOVE 10
-#define CMD_MOUS_LCLICK 11
+#define CMD_MOUSE_LCLICK 11
 #define CMD_MOUSE_RCLICK 12
-#define CMD_MOUSE_SCROLL 13
+
+// code needed to exit the server
+#define CMD_EXIT_SERVER 99
 
 // package struct called envelope (we only use carrier pidgeons)
 // packed so that there's no padding which results in more space used in ram
