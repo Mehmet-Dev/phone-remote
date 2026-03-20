@@ -72,6 +72,14 @@ void handle_command(envelope* pidgeon, int virtual_device_id) {
 
             break;
         }
+        case CMD_MOUSE_LCLICK:
+            printf("Left clicking on the mouse!\n");
+            tap_key(virtual_device_id, BTN_LEFT);
+            break;
+        case CMD_MOUSE_RCLICK:
+            printf("Right clicking on the mouse!\n");
+            tap_key(virtual_device_id, BTN_RIGHT);
+            break;
         
         default:
             printf("Idk what that is, I'm not doing that\n");
@@ -113,9 +121,19 @@ int open_virtual_device() {
     ioctl(id, UI_SET_RELBIT, REL_X);
     ioctl(id, UI_SET_RELBIT, REL_Y);
 
+    // it should be able to skip to next/previous
+    ioctl(id, UI_SET_KEYBIT, KEY_NEXTSONG);
+    ioctl(id, UI_SET_KEYBIT, KEY_PREVIOUSSONG);
+
     //final call to summon the remote
     ioctl(id, UI_DEV_SETUP, &setup);
     ioctl(id, UI_DEV_CREATE);
 
     return id;
+}
+
+/// @brief kill the virtual device and bury the evidence
+/// @param fd 
+void close_virtual_device(int fd) {
+    ioctl(fd, UI_DEV_DESTROY, 0);
 }

@@ -5,5 +5,6 @@
 
 void handle_command(envelope* pidgeon, int virtual_device_id);
 int open_virtual_device();
+void close_virtual_device(int fd);
 
 #endif
