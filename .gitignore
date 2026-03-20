@@ -56,3 +56,53 @@ dkms.conf
 
 /.vscode
 remote_listener_app
+
+# --- C / Linux Listener Stuff ---
+*.o
+*.d
+*.out
+obj/
+remote_listener_app
+.vscode/
+
+# --- Android / Kotlin Remote Stuff ---
+# Gradle files
+.gradle/
+build/
+/*/build/
+gradlew
+gradlew.bat
+gradle/wrapper/gradle-wrapper.jar
+
+# Local configuration (THIS IS IMPORTANT: contains your private SDK paths)
+local.properties
+
+# Android Studio / IntelliJ files
+.idea/
+*.iml
+.idea/workspace.xml
+.idea/libraries
+.idea/modules.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+captures/
+.externalNativeBuild
+.cxx/
+
+# Built application files
+*.apk
+*.ap_
+*.aab
+*.dex
+*.class
+
+# Log/OS Files
+*.log
+.DS_Store
+Thumbs.db
+
+# Kotlin specific
+.kotlin/
+
+android_remote/.gradle/
+android_remote/local.properties
