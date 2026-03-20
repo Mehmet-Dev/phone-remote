@@ -20,7 +20,10 @@ int main()
             printf("Trying again...\n");
     }
 
-    printf("Socket created!\n");
+    printf("Socket created on port %d!\n", DEFAULT_PORT);
+
+    start_discovery_thread(); 
+    printf("Handshake responder active on port 6970. Waiting for phone to shout...\n");
 
     int device_id = open_virtual_device(); // virtual device id that's required
 
@@ -34,9 +37,18 @@ int main()
             continue;
         }
 
+        
+
         if(ntohs(carrier_pidgeon.magic_number) == MAGIC_NUMBER) { // if the magic number matches then we execute
-            printf("Hit by magical number! Dude the pidgeon flew away fuck\n");
+            if (carrier_pidgeon.command == 99) {
+                printf("Received Exit Signal. Shutting down gracefully... Peace out!\n");
+                break; // This breaks the while(1) loop and exists app
+            }
             handle_command(&carrier_pidgeon, device_id);
         }
     }
+
+    close_virtual_device(device_id);
+    close_descriptors(device_id, socketId);
+    return 0;
 }
