@@ -1,6 +1,6 @@
 # Compiler and Flags
 CC      := gcc
-CFLAGS  := -Wall -Wextra -g -Iinc
+CFLAGS  := -Wall -Wextra -g -Iinc -lpthread
 # -Wall -Wextra: Show all warnings (crucial for C)
 # -g: Adds debug symbols for Valgrind/GDB
 # -Iinc: Tells the compiler to look in /inc for your .h files
